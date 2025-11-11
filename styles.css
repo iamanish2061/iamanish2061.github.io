@@ -584,7 +584,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--animation-duration) ease;
         }
 
         .skill-item:hover {
@@ -758,6 +760,188 @@
             color: var(--primary-color);
             transform: translateX(5px);
         }
+
+        /* trainings section */
+        .training-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .training-container.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .training-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--card-shadow);
+            transition: all var(--animation-duration) ease;
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+        }
+
+        body.dark-mode .training-item {
+            background: var(--dark-surface);
+        }
+
+        .training-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-light));
+            transition: width var(--animation-duration) ease;
+        }
+
+        .training-item:hover::before {
+            width: 8px;
+        }
+
+        .training-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .training-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .training-item h3::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width var(--animation-duration) ease;
+        }
+
+        .training-item:hover h3::after {
+            width: 100%;
+        }
+
+        .training-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: var(--light-text-secondary);
+        }
+
+        body.dark-mode .training-item p {
+            color: var(--dark-text-secondary);
+        }
+
+        .training-item strong {
+            color: var(--light-text);
+            font-weight: 600;
+        }
+
+        body.dark-mode .training-item strong {
+            color: var(--dark-text);
+        }
+
+        .image-holder {
+            margin-top: 2rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all var(--animation-duration) ease;
+            position: relative;
+        }
+
+        .image-holder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(45deg, rgba(108, 99, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity var(--animation-duration) ease;
+            z-index: 1;
+        }
+
+        .image-holder:hover::before {
+            opacity: 1;
+        }
+
+        .image-holder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+            border-radius: var(--border-radius);
+        }
+
+        .image-holder:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Certificate badge */
+        .training-item::after {
+            content: 'Certificate';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 15px rgba(255, 101, 132, 0.3);
+        }
+
+        /* Responsive Design for Training Section */
+        @media (max-width: 768px) {
+            .training-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .training-item {
+                padding: 30px;
+            }
+            
+            .training-item h3 {
+                font-size: 1.5rem;
+            }
+            
+            .training-item p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .training-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .training-item {
+                padding: 25px;
+            }
+            
+            .training-item h3 {
+                font-size: 1.3rem;
+            }
+        }
+
 
         /* Contact Section */
         .contact-container {

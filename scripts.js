@@ -86,10 +86,26 @@
             const aboutContent = document.getElementById('aboutContent');
             const projectsGrid = document.getElementById('projectsGrid');
             const contactContainer = document.getElementById('contactContainer');
+            const trainingContainer = document.getElementById('trainingContainer');
+            const skillsContainer = document.getElementById('skillsContainer');
             
+            // Skills animation
+            if (isInViewport(skillsContainer)) {
+                skillsContainer.classList.add('animate');
+            }
+
             // About section animation
             if (isInViewport(aboutContent)) {
                 aboutContent.classList.add('animate');
+            }
+
+            // Contact section animation
+            if (isInViewport(contactContainer)) {
+                contactContainer.classList.add('animate');
+            }
+            // Training section animation
+            if (isInViewport(trainingContainer)) {
+                trainingContainer.classList.add('animate');
             }
             
             // Projects animation
@@ -102,10 +118,16 @@
                 }
             });
             
-            // Contact section animation
-            if (isInViewport(contactContainer)) {
-                contactContainer.classList.add('animate');
-            }
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+                if (isInViewport(item)) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                    item.style.transitionDelay = `${index * 0.1}s`;
+                }
+            });
+            
+            
         };
 
         // Check if element is in viewport
