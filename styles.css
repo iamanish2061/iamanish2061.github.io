@@ -527,7 +527,7 @@
         }
 
         .about-image img {
-            width: 100%;
+            width: 90%;
             height: 100%;
             object-fit: cover;
             mix-blend-mode:normal;
