@@ -1,5 +1,4 @@
-
-        :root {
+:root {
             --primary-color: #6C63FF;
             --primary-light: #8B78FF;
             --primary-dark: #564FD6;
@@ -654,7 +653,7 @@
             transition: all var(--animation-duration) ease;
             opacity: 0;
             transform: translateY(30px);
-            height: 28rem;
+            height: 32rem; /* Increased height to accommodate more content */
         }
 
         body.dark-mode .project-card {
@@ -1530,4 +1529,3 @@
             }
         }
 
-        
